@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add address</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form method="post" th:action="@{/app/add}" th:object="${entity}">
+        <h3>Add new address</h3>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td><label>
+                    <input type="text" th:field="${entity.fullName}"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Address:</td>
+                <td><label>
+                    <input type="text" th:field="${entity.fullAddress}"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Phone number:</td>
+                <td><label>
+                    <input type="text" th:field="${entity.phoneNumber}"/>
+                </label></td>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <form th:action="@{/login}" method="post">
+        <div>
+            <h3>Enter your login and password</h3>
+        </div>
+        <table>
+            <tr>
+                <td>Login:</td>
+                <td><label>
+                    <input type="text" name="login"/>
+                </label></td>
+            </tr>
+            <tr>
+                <td>Password:</td>
+                <td><label>
+                    <input type="password" name="password"/>
+                </label></td>
+            </tr>
+        </table>
+        <br>
+        <div>
+            <input type="submit" value="Submit"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Address list</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+        }
+        h3, tr, td {
+            text-align: center;
+        }
+        .actions {
+            width: 10px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <h3>Address list</h3>
+    <table>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Phone number</th>
+            <th colspan="3">Actions</th>
+        </tr>
+        <tr th:each="entity : ${entityList}">
+            <td th:text="${entity.key}"></td>
+            <td th:text="${entity.value.fullName}"></td>
+            <td th:text="${entity.value.fullAddress}"></td>
+            <td th:text="${entity.value.phoneNumber}"></td>
+            <td class="actions">
+                <form th:method="get" th:action="@{/app/__${entity.key}__/view}">
+                    <input type="submit" value="View">
+                </form>
+            </td>
+            <td class="actions">
+                <form th:method="get" th:action="@{/app/__${entity.key}__/edit}">
+                    <input type="submit" value="Edit">
+                </form>
+            </td>
+            <td class="actions">
+                <form th:method="get" th:action="@{/app/__${entity.key}__/delete}">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

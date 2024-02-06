@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>View address</title>
+    <style>
+        div {
+            display: flex;
+            justify-content: center;
+        }
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h3>View address</h3>
+<div>
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="${entity.fullName}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td th:text="${entity.fullAddress}"></td>
+        </tr>
+        <tr>
+            <td>Phone number:</td>
+            <td th:text="${entity.phoneNumber}"></td>
+        </tr>
+    </table>
+</div>
+<br>
+<div>
+    <form th:method="get" th:action="@{/app/list}">
+        <input type="submit" value="Back">
+    </form>
+</div>
+</body>
+</html>
